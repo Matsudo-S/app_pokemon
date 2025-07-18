@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Card from './components/Card/Card';
+import FVAnimation from './components/FVAnimation/FVAnimation';
 import { getAllPokemon, getPokemon, getSpeciesData, getAbilityData, getTypeData } from './utils/pokemon';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   const [prevUrl, setPrevUrl] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [showFVAnimation, setShowFVAnimation] = useState(true);
   const TOTAL_POKEMON = 1025; // ポケモンの総数を1025に制限
 
   useEffect(() => {
@@ -274,9 +276,17 @@ const Pagination = () => (
   </div>
 );
 
+  // FVアニメーション完了時のコールバック
+  const handleFVAnimationComplete = () => {
+    setShowFVAnimation(false);
+  };
+
   // 実際に表示される内容
   return (
     <div className="App">
+      {showFVAnimation && (
+        <FVAnimation onAnimationComplete={handleFVAnimationComplete} />
+      )}
       {loading ? (
         <>
           <h1>Loading...</h1>
