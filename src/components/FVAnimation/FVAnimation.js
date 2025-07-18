@@ -3,7 +3,6 @@ import './FVAnimation.css';
 
 const FVAnimation = ({ onAnimationComplete }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     // sessionStorageでアニメーション表示済みかチェック
@@ -11,7 +10,6 @@ const FVAnimation = ({ onAnimationComplete }) => {
     
     if (!hasShownAnimation) {
       setIsVisible(true);
-      setIsAnimating(true);
       
       // アニメーション完了後にsessionStorageに記録
       const timer = setTimeout(() => {
