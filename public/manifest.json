@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ポケモン図鑑",
+  "name": "ポケモン図鑑 - ポケモンの詳細情報を確認できます",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "pokemon-dex-favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "pokemon-dex-icon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "pokemon-dex-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
