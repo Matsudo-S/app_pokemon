@@ -8,10 +8,32 @@
   cursor: pointer;
   transform: scale(1);
   transform-origin: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
   transform: scale(1.05);
+  box-shadow: 4px 12px 25px #555;
+}
+
+.card:active {
+  transform: scale(1.02);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.card:hover::before {
+  left: 100%;
 }
 
 .cardName {
@@ -38,4 +60,44 @@
   width: 100%;
   background-color: rgba(255, 255, 255, 0.6);
   height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.cardImg img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cardTypes {
+  margin: 10px 0;
+}
+
+.type {
+  display: inline-block;
+  margin: 2px;
+}
+
+.typeName {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.cardData {
+  margin: 5px 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
 }

@@ -1,46 +1,168 @@
 .App {
   text-align: center;
-  width: 100%;
-  height: 100vh;
 }
 
 .pokemonCardContainer {
-  margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding: 20px;
-  
+  max-width: 1200px;
+  margin-inline: auto;
+  justify-items: center;
+  justify-content: center;
 }
 
-.btn {
-  padding: 30px 0px;
+/* レスポンシブ対応 */
+@media (min-width: 1024px) {
+  .pokemonCardContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ページネーションスタイル */
+.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  border: none;
-  background-color: #d69a3f;
-  color: #000;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  margin: 30px 0;
+  padding: 25px;
 }
 
-.btn button {
-  font-size: 20px;
-  padding: 13px 20px;
-  border: none;
-  background-color: #fff;
+.pagination-btn {
+  min-width: 50px;
+  height: 50px;
+  border: 2px solid #d69a3f;
+  background: white;
   color: #000;
-  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
   cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
+  user-select: none;
+  position: relative;
 }
-.btn button:hover {
-  background-color: #808080;
-  color: #fff;
+
+.pagination-btn:hover:not(:disabled) {
+  background: #d69a3f;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(214, 154, 63, 0.4);
+}
+
+.pagination-btn:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.pagination-btn.active {
+  background: #d69a3f;
+  color: white;
+  box-shadow: 0 4px 8px rgba(214, 154, 63, 0.3);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #ccc;
+}
+
+.pagination-btn:disabled:hover {
+  background: white;
+  color: #ccc;
+  transform: none;
+  box-shadow: none;
+}
+
+.first-btn, .last-btn {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.prev-btn, .next-btn {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.page-btn {
+  font-weight: 600;
+}
+
+/* ツールチップスタイル */
+.pagination-btn[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pagination-btn[title]:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 3px;
+  z-index: 1000;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .pagination {
+    gap: 6px;
+    margin: 20px 0;
+    padding: 20px;
+  }
+  
+  .pagination-btn {
+    min-width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .first-btn, .last-btn {
+    font-size: 18px;
+  }
+  
+  .prev-btn, .next-btn {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination {
+    gap: 4px;
+  }
+  
+  .pagination-btn {
+    min-width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .first-btn, .last-btn {
+    font-size: 16px;
+  }
+  
+  .prev-btn, .next-btn {
+    font-size: 18px;
+  }
 }

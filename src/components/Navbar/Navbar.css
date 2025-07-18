@@ -2,7 +2,6 @@
   background-color: #d69a3f;
   color: #fff;
   padding: 20px;
-  text-align: center;
   font-size: 24px;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -11,4 +10,77 @@
   left: 0;
   right: 0;
   z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.page-select {
+  padding: 8px 12px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #d69a3f;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.page-select:hover {
+  background-color: #f0f0f0;
+  border-color: #e0e0e0;
+}
+
+.page-select:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.page-select option {
+  background-color: #fff;
+  color: #d69a3f;
+  padding: 8px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .navbar-title {
+    font-size: 20px;
+    position: static;
+    transform: none;
+  }
+  
+  .navbar-controls {
+    margin-left: 0;
+  }
+  
+  .page-select {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
